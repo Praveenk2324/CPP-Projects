@@ -20,9 +20,9 @@ int maxProfit(vector<int>& prices){
 }
 
 int main() {
-    std::vector<int> prices = {7, 1, 5, 3, 6, 4};
+    vector<int> prices = {7, 1, 5, 3, 6, 4};
 
-    std::cout << "Max Profit: " << maxProfit(prices) << std::endl;
+    cout << "Max Profit: " << maxProfit(prices) << endl;
 
     return 0;
 }
