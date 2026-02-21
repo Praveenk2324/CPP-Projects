@@ -1,23 +1,36 @@
 #include<iostream>
 #include<map>
 #include<string>
-#include<print>
+#include<unordered_map>
+#include<vector>
 
 using namespace std;
 
-int main(){
-    map<string, string> myDictionary;
+struct CityRecord{
+    string Name;
+    uint64_t Population;
+    double Latitude, Longitude;
+};
 
-    myDictionary.insert(pair<string, string>("apple", "der Apfel"));
-    myDictionary.insert(pair<string, string>("banana", "der Banane"));
-    myDictionary.insert(pair<string, string>("orange", "die Orange, die Apfelsine"));
-    myDictionary.insert(pair<string, string>("strawberry", "die Erdbeere"));
-
-    for(auto pair:myDictionary){
-        cout << pair.first << " - " << pair.second <<'\n';
+namespace std{
+template<>
+struct hash<CityRecord>{
+    size_t operator()(const CityRecord& key){
+        return hash<string>()(key.Name);
     }
-    int array[5];
-   
-    println("Hello");
+};
+}
 
+
+int main(){
+    
+    unordered_map<string, CityRecord> cityMap;
+    cityMap["Melbourne"] = {"Melbourne", 5000000, 2.4, 9.4};
+    cityMap["Lol-town"] = {"Lol-town", 5000000, 2.4, 9.4};
+    cityMap["Berlin"] = {"Berlin", 5000555000, 2.4, 9.4};
+    cityMap["Paris"] = {"Paris", 5000000, 2.4, 9.4};
+    cityMap["London"] = {"London", 5000000, 2.4, 9.4}; 
+
+    CityRecord& berlinData = cityMap["Berlin"];
+    berlinData.Population;
 } 
