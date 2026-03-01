@@ -25,7 +25,7 @@ using namespace std;
 //     }
 // };
 
-//simple code
+//Simple code using cpp stl
 
 class Solution {
 public:
