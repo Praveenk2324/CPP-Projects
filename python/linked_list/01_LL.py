@@ -7,10 +7,23 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def __contains__(self ):
-        
+    #  O(n)
+    def __contains__(self, value):
+        last = self.head
+        while last is not None:
+            if last.value == value:
+                return True
+            last = last.next
+        return last
+    
+    #  O(n)
+    def __len__(self):
+        last = self.head
+        while last is not None:
+            counter += 1
+            last = last.next
+        return counter
 
-        
     # O(n)
     def append(self, value):
         if self.head is None:
